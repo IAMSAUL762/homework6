@@ -15,12 +15,12 @@ onMounted(async () => {
 <template>
   <BaseTitle>TRIVIA APPLICATION</BaseTitle>
   <div class="grid flex-grow grid-cols-4 gap-12 m-20">
-    <RouterLink v-for="category in categories" 
-    :key=""category.id"
-    :to="`/categories/${category.id}`"
+  <router-link v-for="category in categories" 
+    :key="category.id"
+    :to="`/Question/categories/${category.id}`"
     class="bg-white text-center flex h-32 items-center justify-center rounded-lg boarder-4 border-slate-500 py-4 font-bold uppercase hover:cursor pointer hover:boarder-red-500 hover-bg-red-400 hover:text-white transition-colors duration-300"
-     {{ category.name }}
-  </div>
-
-  </div>
+  >
+    {{ category.name }}
+  </router-link>  
+    </div> 
 </template>
