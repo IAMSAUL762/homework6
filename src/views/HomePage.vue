@@ -7,14 +7,20 @@ const { categories, getCategories } = useAPI()
 
 onMounted(async () => {
   await getCategories()
-  console.log(categories)
 })    
+
 
 </script>
 
 <template>
   <BaseTitle>TRIVIA APPLICATION</BaseTitle>
-  <div v-for="category in categories" :key=""category.id">
-    {{ category.name }}
+  <div class="grid flex-grow grid-cols-4 gap-12 m-20">
+    <RouterLink v-for="category in categories" 
+    :key=""category.id"
+    :to="`/categories/${category.id}`"
+    class="bg-white text-center flex h-32 items-center justify-center rounded-lg boarder-4 border-slate-500 py-4 font-bold uppercase hover:cursor pointer hover:boarder-red-500 hover-bg-red-400 hover:text-white transition-colors duration-300"
+     {{ category.name }}
+  </div>
+
   </div>
 </template>
