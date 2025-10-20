@@ -1,5 +1,5 @@
-import axios
-imnport { ref }    from "vue";
+import axios from "axios";
+import { ref } from "vue";
 
 const instance = axios.create({
   baseURL: "https://opentdb.com/",
@@ -15,6 +15,17 @@ export function useAPI() {
         }
     }
 
-     return { instance, categories, getCategories }
+    const getQuestions = async (categoriesId) =>
+        const response = await instance.get("api.php", {
+        params: {
+            amount: 1,
+            category: categoriesId,
+        }
+    })
+
+        return response.data.results;[0]
+    }
+
+    return { instance, categories, getCategories, getQuestions }
 } 
 
